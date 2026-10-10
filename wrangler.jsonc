@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "iphone-ding",
+  "main": "src/adapters/cloudflare.ts",
+  "compatibility_date": "2026-10-10",
+  "assets": {
+    "directory": "dist/web",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"],
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "iphone-ding",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "MONITOR", "class_name": "InventoryMonitor" }],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["InventoryMonitor"] }],
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": { "BARK_ALLOWED_HOSTS": "api.day.app" },
+  "observability": { "enabled": true },
+}

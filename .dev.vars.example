@@ -1,0 +1,4 @@
+ADMIN_PASSWORD=""
+SESSION_SECRET=""
+# 仅 wrangler 本地开发使用 false，生产环境不要配置为 false
+COOKIE_SECURE="false"

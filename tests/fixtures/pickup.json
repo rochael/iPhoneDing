@@ -1,0 +1,112 @@
+{
+  "head": {
+    "status": "200",
+    "data": {}
+  },
+  "body": {
+    "stores": [
+      {
+        "storeNumber": "R428",
+        "storeName": "ifc mall",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      },
+      {
+        "storeNumber": "R499",
+        "storeName": "Canton Road",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      },
+      {
+        "storeNumber": "R409",
+        "storeName": "Causeway Bay",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      },
+      {
+        "storeNumber": "R485",
+        "storeName": "Festival Walk",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      },
+      {
+        "storeNumber": "R673",
+        "storeName": "apm Hong Kong",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      },
+      {
+        "storeNumber": "R610",
+        "storeName": "New Town Plaza",
+        "country": "HK",
+        "partsAvailability": {
+          "MJY04ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          },
+          "MJXT4ZA/A": {
+            "pickupDisplay": "unavailable",
+            "pickupSearchQuote": "Currently unavailable",
+            "storePickEligible": true
+          }
+        }
+      }
+    ]
+  }
+}

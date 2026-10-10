@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/
+.env
+.dev.vars
+.wrangler/
+playwright-report/
+test-results/
+*.sqlite*

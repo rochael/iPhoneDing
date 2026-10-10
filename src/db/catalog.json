@@ -1,0 +1,288 @@
+{
+  "verifiedAt": "2026-10-10",
+  "source": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro",
+  "products": [
+    {
+      "id": "MJY04ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "1TB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-1tb-burgundy"
+    },
+    {
+      "id": "MJY14ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "1TB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-1tb-glacier"
+    },
+    {
+      "id": "MJXP4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "256GB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-256gb-silver"
+    },
+    {
+      "id": "MJXN4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "256GB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-256gb-black"
+    },
+    {
+      "id": "MJY54ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "2TB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-2tb-glacier"
+    },
+    {
+      "id": "MJXT4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "512GB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-512gb-black"
+    },
+    {
+      "id": "MJY44ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "2TB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-2tb-burgundy"
+    },
+    {
+      "id": "MJXR4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "256GB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-256gb-glacier"
+    },
+    {
+      "id": "MJY34ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "2TB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-2tb-silver"
+    },
+    {
+      "id": "MJXQ4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "256GB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-256gb-burgundy"
+    },
+    {
+      "id": "MJY24ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "2TB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-2tb-black"
+    },
+    {
+      "id": "MJXX4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "1TB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-1tb-black"
+    },
+    {
+      "id": "MJXW4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "512GB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-512gb-glacier"
+    },
+    {
+      "id": "MJXV4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "512GB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-512gb-burgundy"
+    },
+    {
+      "id": "MJXU4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "512GB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-512gb-silver"
+    },
+    {
+      "id": "MJXY4ZA/A",
+      "model": "iPhone 18 Pro Max",
+      "capacity": "1TB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-1tb-silver"
+    },
+    {
+      "id": "MJRY4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "1TB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-1tb-black"
+    },
+    {
+      "id": "MJT24ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "1TB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-1tb-glacier"
+    },
+    {
+      "id": "MJRP4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "256GB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-256gb-black"
+    },
+    {
+      "id": "MJT34ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "2TB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-2tb-black"
+    },
+    {
+      "id": "MJT04ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "1TB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-1tb-silver"
+    },
+    {
+      "id": "MJT14ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "1TB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-1tb-burgundy"
+    },
+    {
+      "id": "MJT64ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "2TB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-2tb-glacier"
+    },
+    {
+      "id": "MJRT4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "256GB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-256gb-glacier"
+    },
+    {
+      "id": "MJRQ4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "256GB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-256gb-silver"
+    },
+    {
+      "id": "MJT44ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "2TB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-2tb-silver"
+    },
+    {
+      "id": "MJRR4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "256GB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-256gb-burgundy"
+    },
+    {
+      "id": "MJT54ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "2TB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-2tb-burgundy"
+    },
+    {
+      "id": "MJRW4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "512GB",
+      "color": "burgundy",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-512gb-burgundy"
+    },
+    {
+      "id": "MJRX4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "512GB",
+      "color": "glacier",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-512gb-glacier"
+    },
+    {
+      "id": "MJRU4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "512GB",
+      "color": "black",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-512gb-black"
+    },
+    {
+      "id": "MJRV4ZA/A",
+      "model": "iPhone 18 Pro",
+      "capacity": "512GB",
+      "color": "silver",
+      "active": true,
+      "url": "https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.3-inch-display-512gb-silver"
+    }
+  ],
+  "stores": [
+    {
+      "id": "R428",
+      "name": "ifc mall"
+    },
+    {
+      "id": "R499",
+      "name": "Canton Road"
+    },
+    {
+      "id": "R409",
+      "name": "Causeway Bay"
+    },
+    {
+      "id": "R485",
+      "name": "Festival Walk"
+    },
+    {
+      "id": "R673",
+      "name": "apm Hong Kong"
+    },
+    {
+      "id": "R610",
+      "name": "New Town Plaza"
+    }
+  ]
+}
