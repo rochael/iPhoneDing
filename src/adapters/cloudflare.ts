@@ -12,12 +12,14 @@ export interface Bindings {
   SESSION_SECRET: string;
   BARK_ALLOWED_HOSTS?: string;
   COOKIE_SECURE?: string;
+  PUBLIC_ORIGIN?: string;
 }
 function config(env: Bindings) {
   return {
     adminPassword: env.ADMIN_PASSWORD ?? "",
     sessionSecret: env.SESSION_SECRET ?? "",
     secureCookie: env.COOKIE_SECURE !== "false",
+    publicOrigin: env.PUBLIC_ORIGIN?.trim() || undefined,
     barkAllowedHosts: (env.BARK_ALLOWED_HOSTS ?? "api.day.app")
       .split(",")
       .map((s) => s.trim()),

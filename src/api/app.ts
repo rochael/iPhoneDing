@@ -15,6 +15,7 @@ export interface ApiConfig {
   adminPassword: string;
   sessionSecret: string;
   secureCookie: boolean;
+  publicOrigin?: string;
   barkAllowedHosts?: string[];
 }
 export interface Services {
@@ -25,6 +26,24 @@ export interface Services {
 export function validateConfig(config: ApiConfig) {
   if (config.adminPassword.length < 12 || config.sessionSecret.length < 32)
     throw new Error("ADMIN_PASSWORD 至少 12 位，SESSION_SECRET 至少 32 位");
+  if (config.publicOrigin) {
+    try {
+      const url = new URL(config.publicOrigin);
+      if (
+        !["http:", "https:"].includes(url.protocol) ||
+        url.pathname !== "/" ||
+        url.search ||
+        url.hash ||
+        url.username ||
+        url.password
+      )
+        throw new Error();
+    } catch {
+      throw new Error(
+        "PUBLIC_ORIGIN 必须是仅含协议、域名和可选端口的 HTTP(S) 地址",
+      );
+    }
+  }
 }
 async function samePassword(a: string, b: string) {
   const hash = async (s: string) =>
@@ -70,7 +89,9 @@ export function createApi<E extends { Bindings?: object } = {}>(
     c.header("Cache-Control", "no-store");
     if (!["GET", "HEAD"].includes(c.req.method)) {
       const origin = c.req.header("origin");
-      if (origin && origin !== new URL(c.req.url).origin)
+      const publicOrigin = services(c.env).config.publicOrigin;
+      const expectedOrigin = new URL(publicOrigin ?? c.req.url).origin;
+      if (origin && origin !== expectedOrigin)
         return c.json({ error: "不允许跨站请求" }, 403);
       if (c.req.header("sec-fetch-site") === "cross-site")
         return c.json({ error: "不允许跨站请求" }, 403);

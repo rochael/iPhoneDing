@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
 import { nodeRepository } from "../src/adapters/node-db";
-import { createApi } from "../src/api/app";
+import { createApi, validateConfig } from "../src/api/app";
 const config = {
   adminPassword: "test-password-123",
   sessionSecret: "test-secret-with-at-least-32-characters",
@@ -57,6 +57,100 @@ it("rejects cross-origin mutations even with a valid session", async () => {
   });
   expect(res.status).toBe(403);
   repo.close();
+});
+it("accepts the configured HTTPS origin behind an HTTP reverse proxy", async () => {
+  const repo = nodeRepository(":memory:");
+  const app = createApi(() => ({
+    repo,
+    config: {
+      ...config,
+      secureCookie: true,
+      publicOrigin: "https://iphone.phper.dev",
+    },
+  }));
+  try {
+    const response = await app.request("http://app:3000/api/login", {
+      method: "POST",
+      headers: {
+        origin: "https://iphone.phper.dev",
+        "sec-fetch-site": "same-origin",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ password: config.adminPassword }),
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("set-cookie")).toContain("Secure");
+    const cookie = response.headers.get("set-cookie")!.split(";")[0];
+    const logout = await app.request("http://app:3000/api/logout", {
+      method: "POST",
+      headers: { cookie, origin: "https://iphone.phper.dev" },
+    });
+    expect(logout.status).toBe(200);
+  } finally {
+    repo.close();
+  }
+});
+it("rejects other origins and spoofed forwarding headers when a public origin is configured", async () => {
+  const repo = nodeRepository(":memory:");
+  const app = createApi(() => ({
+    repo,
+    config: { ...config, publicOrigin: "https://iphone.phper.dev" },
+  }));
+  try {
+    for (const origin of [
+      "https://other.example",
+      "http://iphone.phper.dev",
+      "http://app:3000",
+      "https://iphone.phper.dev.attacker.example",
+      "null",
+    ]) {
+      const response = await app.request("http://app:3000/api/login", {
+        method: "POST",
+        headers: {
+          origin,
+          "content-type": "application/json",
+          "x-forwarded-proto": "https",
+          "x-forwarded-host": new URL(
+            origin === "null" ? "https://other.example" : origin,
+          ).host,
+        },
+        body: JSON.stringify({ password: config.adminPassword }),
+      });
+      expect(response.status, origin).toBe(403);
+    }
+    const crossSite = await app.request("http://app:3000/api/login", {
+      method: "POST",
+      headers: {
+        origin: "https://iphone.phper.dev",
+        "sec-fetch-site": "cross-site",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ password: config.adminPassword }),
+    });
+    expect(crossSite.status).toBe(403);
+  } finally {
+    repo.close();
+  }
+});
+it("validates the configured public origin before serving requests", () => {
+  for (const publicOrigin of [
+    "iphone.phper.dev",
+    "ftp://iphone.phper.dev",
+    "https://iphone.phper.dev/path",
+    "https://iphone.phper.dev?query=1",
+    "https://iphone.phper.dev#hash",
+    "https://user:password@iphone.phper.dev",
+  ]) {
+    expect(() => validateConfig({ ...config, publicOrigin })).toThrow(
+      /PUBLIC_ORIGIN/,
+    );
+  }
+  expect(() =>
+    validateConfig({ ...config, publicOrigin: "https://iphone.phper.dev" }),
+  ).not.toThrow();
+  expect(() =>
+    validateConfig({ ...config, publicOrigin: "http://localhost:5173" }),
+  ).not.toThrow();
 });
 it("filters real events, exports HK CSV and rejects invalid dates and granularity", async () => {
   const repo = nodeRepository(":memory:");

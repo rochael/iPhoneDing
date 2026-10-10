@@ -39,6 +39,8 @@ npm run probe -- https://你的域名 # 登录部署端，再在该环境查询8
 3. `docker compose up -d --build`。app、monitor 共用 SQLite 持久化卷；Caddy 自动申请 HTTPS。
 4. `docker compose logs --tail=50 monitor` 检查运行；访问设置页检查上次成功、目录时间与查询异常。
 
+HTTPS反向代理会使用HTTP连接Node后端。应用通过公网来源地址校验写入请求，HTTPS部署默认使用 `https://${DOMAIN}`；也可在 `.env` 明确设置 `PUBLIC_ORIGIN=https://iphone.phper.dev`（仅协议、域名和可选端口），与浏览器访问地址保持一致。纯本地开发保持 `COOKIE_SECURE=false` 且留空 `PUBLIC_ORIGIN`，继续按请求地址校验。Workers通常直接接收外部HTTPS地址，可选用同名变量指定固定入口。应用不依赖客户端提交的 `X-Forwarded-*` 头决定允许的来源。
+
 镜像以非 root 用户运行。升级前备份数据，再重新构建。SQLite 的 WAL 文件必须随数据库一起保存；优先使用下述暂停后的 JSON 导出，或 SQLite 在线 backup 命令。不能只复制正在写入的 `.sqlite` 文件。
 
 ## Cloudflare

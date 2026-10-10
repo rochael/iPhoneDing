@@ -34,3 +34,11 @@
 - ego-browser工作区13，390×844手机视口：用独立内存数据库验证06:00–07:00的100/120与83.3%，另一次未知未改变比例；柱状图、热力图、筛选、门店对比、15分钟记录与CSV一致，页面宽度390，无横向溢出。测试数据未写入真实历史库。
 - 本地D1应用0002迁移成功，隔离本地D1执行生产仓库生成的计数SQL：S门店2有货/0无货/1未知，T门店1有货/2无货/0未知，与SQLite一致。Workers dry-run通过；未部署远程Cloudflare，未声称云端真实库存访问恢复。
 - 版本2备份含query_counts，实际SQLite导出/导入保持精确计数；版本1导入清空查询计数与开始时间，不回填旧状态为新样本。
+
+## HTTPS反向代理登录修复
+
+- SGSvr001的线上接口收到HTTPS Origin时返回403“不允许跨站请求”，相同地址改用HTTP Origin后通过来源校验，空请求体返回400。确认是代理终止TLS后，Node的请求地址与浏览器Origin协议不一致。
+- 新增PUBLIC_ORIGIN校验入口；Node在HTTPS部署中默认使用已有DOMAIN生成公网来源地址，本地开发继续使用请求地址。允许来源不取自X-Forwarded头。
+- 51项自动测试、类型检查、生产构建、格式检查和Workers部署预检通过。新增用例验证HTTP Node服务接收HTTPS公网Origin、Secure cookie、其他来源及伪造转发头被拒绝，以及环境配置和无效地址检查。
+- SGSvr001重新构建生产镜像时51项测试通过，应用和采集容器均已更新，仍挂载原库存数据卷。Podman容器依赖要求一起重建app/monitor；旧镜像及源文件备份保存在 `/tmp/iphone-ding-origin-fix-lxqimt8g`。
+- 实际经过 `https://iphone.phper.dev` 验证：正确密码登录200、带会话访问200、Secure/HttpOnly cookie、跨站Origin拒绝403、错误HTTP Origin拒绝403、退出200。另从本机请求HTTPS Origin得到输入校验400，来源校验已通过。测试未输出密码或会话密钥。

@@ -10,6 +10,42 @@ import { getRequestListener } from "@hono/node-server";
 import { createApi } from "../src/api/app";
 import { nodeRepository } from "../src/adapters/node-db";
 
+it("logs in through the Node HTTP adapter using a configured HTTPS public origin", async () => {
+  const repo = nodeRepository(":memory:");
+  const password = "proxy-login-test-password";
+  const app = createApi(() => ({
+    repo,
+    config: {
+      adminPassword: password,
+      sessionSecret: "s".repeat(40),
+      secureCookie: true,
+      publicOrigin: "https://iphone.phper.dev",
+    },
+  }));
+  const backend = createHttpServer(getRequestListener(app.fetch));
+  backend.listen(0, "127.0.0.1");
+  await once(backend, "listening");
+  try {
+    const url = `http://127.0.0.1:${(backend.address() as { port: number }).port}/api/login`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        origin: "https://iphone.phper.dev",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ password }),
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("set-cookie")).toContain("Secure");
+    expect(await response.json()).toEqual({ ok: true });
+  } finally {
+    await new Promise<void>((resolve, reject) =>
+      backend.close((error) => (error ? reject(error) : resolve())),
+    );
+    repo.close();
+  }
+});
+
 it("serves the frontend API module while proxying backend API routes", async () => {
   const repo = nodeRepository(":memory:");
   const password = "dev-login-test-password";
